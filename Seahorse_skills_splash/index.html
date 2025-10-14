@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seahorse Skill Splash V1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="holberton-logo.svg" alt="Logo de Holberton School" class="logo">
+        <h1>Seahorse Skill Splash</h1>
+        <p>Version de test - Prototype V1</p>
+        <div class="controls">
+            <h3>Sélection de la cohorte</h3>
+            <select id="cohorte-select">
+                <option value="all">Toutes les cohortes</option>
+                <option value="26">Cohorte 26</option>
+                <option value="27">Cohorte 27</option>
+                <option value="28">Cohorte 28</option>
+            </select>
+            <button id="draw-button">Lancer le tirage !</button>
+        </div>
+        <div class="result-display">
+            <h3>Résultat du tirage</h3>
+            <div id="drawn-student-display" class="result-box">
+                </div>
+            <div id="drawn-challenge-type-display" class="result-box">
+                </div>
+            <div id="drawn-challenge-display" class="result-box">
+                </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
