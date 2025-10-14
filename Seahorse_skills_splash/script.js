@@ -1,17 +1,17 @@
 // --- 1. Données initiales (simule la base de données) ---
 let students = [
-  { name: 'Florian', cohorte: 27, passages: 0 },
-  { name: 'Guillaume', cohorte: 27, passages: 0 },
+  { name: 'Florian', cohorte: 27, passages: 10 },
+  { name: 'Guillaume', cohorte: 27, passages: 20 },
   { name: 'Heytem', cohorte: 27, passages: 0 },
-  { name: 'Loic', cohorte: 27, passages: 0 },
+  { name: 'Loic', cohorte: 27, passages: 20 },
   { name: 'Lucas', cohorte: 27, passages: 0 },
-  { name: 'Mathieu', cohorte: 27, passages: 0 },
-  { name: 'Mathis', cohorte: 27, passages: 0 },
-  { name: 'Melissa', cohorte: 27, passages: 0 },
-  { name: 'Valentin', cohorte: 27, passages: 0 },
+  { name: 'Mathieu', cohorte: 27, passages: 20 },
+  { name: 'Mathis', cohorte: 27, passages: 20 },
+  { name: 'Melissa', cohorte: 27, passages: 10 },
+  { name: 'Valentin', cohorte: 27, passages: 10 },
   { name: 'Yanis', cohorte: 27, passages: 0 },
   { name: 'Zaccaria', cohorte: 27, passages: 0 },
-  { name: 'Yassin', cohorte: 27, passages: 0 },
+  { name: 'Yassin', cohorte: 27, passages: 20 },
   { name: 'Alison', cohorte: 28, passages: 0 },
   { name: 'Amar', cohorte: 28, passages: 0 },
   { name: 'Carlos', cohorte: 28, passages: 0 },
@@ -34,7 +34,7 @@ const challengeTypes = ['Question', 'Manual Review', 'Whiteboard'];
 
 const questionsByCohorte = {
   'all': [],
-  '26': [], // La liste des questions pour la cohorte 26 est vide
+  '26': [], 
   '27': [
     "Que signifie l'acronyme OOP ?",
     "Définissez le concept de classe.",
