@@ -1,334 +1,433 @@
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
-# Resources
+# C - Hello, World
 
 ## Table of Contents :
 
-  - [0. Basic components](#subparagraph0)
-  - [1. Write the tests for each component](#subparagraph1)
-  - [2. Separation of Concerns](#subparagraph2)
-  - [3. Devtool React extension](#subparagraph3)
-  - [4. CourseList & CourseListRow](#subparagraph4)
-  - [5. Enhance Notifications component](#subparagraph5)
-
+  - [0. Preprocessor](#subparagraph0)
+  - [1. Compiler](#subparagraph1)
+  - [2. Assembler](#subparagraph2)
+  - [3. Name](#subparagraph3)
+  - [4. Hello, puts](#subparagraph4)
+  - [5. Hello, printf](#subparagraph5)
+  - [6. Size is not grandeur, and territory does not make a nation](#subparagraph6)
+  - [7. What happens when you type gcc main.c](#subparagraph7)
+  - [8. Intel](#subparagraph8)
+  - [9. UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity](#subparagraph9)
 ## Resources
-### Read or watch:
-* [React Official Website](/rltoken/NnEOzFmxs6rCi8TP85Alzw)
-* [Getting started with React](/rltoken/nGdGgyclto1HJ8JMiNvY9w)
-* [React overview](/rltoken/vlAy2fYJgLfsZ41tU8jf6A)
-* [React Developer Tools](/rltoken/bvm7dcsO_-_w2eIWLtEdVA)
-* [React Fragments](/rltoken/vGG_vxEqApdVkXttehS9lQ)
-* [Conditional Rendering](/rltoken/pE3YTGLczGcnd_jWmgJ3ew)
-* [Typechecking with PropTypes](/rltoken/1kuKKtKw765oq48N1dtgqw)
-* [React Testing Library](/rltoken/wpIWXCBQUaLexk1L-fUSnQ)
-* [Query within an element](/rltoken/g7Pqn6Hw28ZMj69cbybZIg)
-* [Jest Matchers](/rltoken/ckFroRGNsZD0nMYfKmdLLQ)
+
+**Read or watch**:
+
+- [Everything you need to know to start with C.pdf](/rltoken/84REXk5PZpCHvpqRhygpAw) (*You do not have to learn everything in there yet, but make sure you read it entirely first*)
+- [Dennis Ritchie](/rltoken/z_bMXWzGREPdNusi75hIaA) 
+- ["C" Programming Language: Brian Kernighan](/rltoken/ALlxQP48pUddRMMOU9IYrw) 
+- [Why C Programming Is Awesome](/rltoken/jeQhdiiq4EemF-jlzBCHKw) 
+- [Learning to program in C part 1](/rltoken/y-sbT9uSCGF6ml1ZPOvyJg) 
+- [Learning to program in C part 2](/rltoken/r3mDdJIpJHmu4TdJBV95gQ) 
+- [Understanding C program Compilation Process](/rltoken/tjRducuDVR9ftHsOFxdYmw) 
+- [Betty Coding Style](/rltoken/GG06ebtkejkhoyCOjx1S6w) 
+- [Linus Torvalds on C vs. C++](/rltoken/fXapDTlCYs_KsVAJhxfz6A) (*Look at only after you finish consuming the other resources*)
+
+**man or help**:
+
+- `gcc`
+- `printf (3)`
+- `puts`
+- `putchar`
 
 ## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-* How to create basic React components using functions
-* How to reuse components
-* How to pass properties to components
-* How to use Fragments
-* When to use a key to improve a loop’s performance
+
+At the end of this project, you are expected to be able to [explain to anyone](/rltoken/GEjg-T3E5s_G9FeK4Idz5A), __without the help of Google__:
+
+### General
+
+- Why C programming is awesome 
+- Who invented C
+- Who are Dennis Ritchie, Brian Kernighan and Linus Torvalds
+- What happens when you type `gcc main.c`
+- What is an entry point
+- What is `main`
+- How to print text using `printf`, `puts` and `putchar`
+- How to get the size of a specific type using the unary operator `sizeof`
+- How to compile using `gcc`
+- What is the default program name when compiling with `gcc`
+- What is the official C coding style and how to check your code with `betty-style`
+- How to find the right header to include in your source code when using a standard library function
+- How does the `main` function influence the return value of the program
 
 ## Requirements
-### General
-* All your files will be interpreted/compiled on Ubuntu 20.04 LTS usingnode 20.x.xandnpm 10.x.x
-* Allowed editors:vi,vim,emacs,Visual Studio Code
-* All your files should end with a new line
-* AREADME.mdfile, at the root of the project’s folder and each task’s folder, is mandatory
-* Install Jest globally:npm install -g jest
+
+### C
+
+- Allowed editors: `vi`, `vim`, `emacs`
+- All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
+- All your files should end with a new line
+- A `README.md` file at the root of the repo, containing a description of the repository
+- A `README.md` file, at the root of the folder of *this* project, containing a description of the project
+- There should be no errors and no warnings during compilation
+- You are not allowed to use `system`
+- Your code should use the `Betty` style. It will be checked using [betty-style.pl](https://github.com/hs-hq/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/hs-hq/Betty/blob/master/betty-doc.pl)
+
+### Shell Scripts
+
+- Allowed editors: `vi`, `vim`, `emacs`
+- All your scripts will be tested on Ubuntu 20.04 LTS
+- All your scripts should be exactly two lines long (`$ wc -l file` should print 2)
+- All your files should end with a new line
+- The first line of all your files should be exactly `#!/bin/bash`
+
+## More Info
+
+### Betty linter
+
+To run the Betty linter just with command `betty <filename>`:
+
+- Go to the [Betty](/rltoken/rZaN7lEaiI2xs60Xknp2CA) repository
+- Clone the [repo](/rltoken/rZaN7lEaiI2xs60Xknp2CA) to your local machine
+- `cd` into the Betty directory
+- Install the linter with `sudo ./install.sh`
+- `emacs` or `vi` a new file called `betty`, and copy the script below:
+
+```
+#!/bin/bash
+# Simply a wrapper script to keep you from having to use betty-style
+# and betty-doc separately on every item.
+# Originally by Tim Britton (@wintermanc3r), multiargument added by
+# Larry Madeo (@hillmonkey)
+
+BIN_PATH="/usr/local/bin"
+BETTY_STYLE="betty-style"
+BETTY_DOC="betty-doc"
+
+if [ "$#" = "0" ]; then
+	echo "No arguments passed."
+	exit 1
+fi
+
+for argument in "$@" ; do
+	echo -e "\n========== $argument =========="
+	${BIN_PATH}/${BETTY_STYLE} "$argument"
+	${BIN_PATH}/${BETTY_DOC} "$argument"
+done
+```
+
+- Once saved, exit file and change permissions to apply to all users with `chmod a+x betty`
+- Move the `betty` file into `/bin/` directory or somewhere else in your `$PATH` with `sudo mv betty /bin/`
+
+You can now type `betty <filename>` to run the Betty linter!
+
+### Manual QA Review
+**It is your responsibility to request a review for your blog from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.**
+
 
 ## Task
-### 0. Basic components <a name='subparagraph0'></a>
+### 0. Preprocessor <a name='subparagraph0'></a>
 
-Start with your files from the last task of the <code>React intro</code> project
+Write a script that runs a C file through the preprocessor and save the result into another file.
 
-Instead of creating new elements, we’re going to create components to split the project. The <code>App.jsx</code> is going to become the main entry point, the shell, for every component in the app.
+- The C file name will be saved in the variable `$CFILE`
+- The output should be saved in the file `c`
 
-Create a new folder <code>Header</code>:
+```
+julien@ubuntu:~/c/$ cat main.c 
+#include <stdio.h>
 
-* Create a functional component <code>Header</code> inside the <code>Header.jsx</code> where you move the code of the header from the <code>App.jsx</code>.
-* Move the CSS code, related to the header, from the <code>App.css</code> to a new file named <code>Header.css</code>.
-* Create an empty test file <code>Header.spec.js</code>.
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	return (0);
+}
+julien@ubuntu:~/c/$ export CFILE=main.c
+julien@ubuntu:~/c/$ ./0-preprocessor 
+julien@ubuntu:~/c/$ tail c
+# 942 "/usr/include/stdio.h" 3 4
 
-Create a new folder <code>Footer</code>:
+# 2 "main.c" 2
 
-* Create a functional component <code>Footer</code> inside the <code>Footer.jsx</code> where you move the code of the footer from the <code>App.jsx</code>.
-* Move the CSS code, related to the footer, from the <code>App.css</code> to a new file named <code>Footer.css</code>
-* Create an empty test file <code>Footer.spec.js</code>.
 
-Create a new folder <code>Login</code>:
-
-* Create a functional component <code>Login</code> inside the <code>Login.jsx</code> where you move the code of the login form from the <code>App.jsx</code>.
-* Move the CSS code, related to the login, from the <code>App.css</code> to a new file named <code>Login.css</code>
-* Create an empty test file <code>Login.spec.js</code>.
-
-In the <code>App.jsx</code>:
-
-* Along with the Notifications component, import the Header, the Login, and the Footer components
-* Pass the components in the above order respectively
-* Wrap the above elements inside a react <code>&lt;Fragment&gt;</code>
-
-<strong>Tests:</strong>
-
-In the <code>App.spec.js</code>:
-
-* As an entry point, in the App.spec.js file, check that all components are rendered correctly
-
-In the <code>Header.spec.js</code>:
-
-* Copy all Header related unit tests within the Header.spec.js file
-
-In the <code>Login.spec.js</code>:
-
-* Copy all Login related unit tests within the Login.spec.js file
-
-In the <code>Footer.spec.js</code>:
-
-* Copy all Footer related unit tests within the Footer.spec.js file
-
-Requirements:
-
-* At this point, reloading the App should display the exact same page as the last task
-* The console in your browser should not show any errors or warnings
+# 3 "main.c"
+int main(void)
+{
+ return (0);
+}
+julien@ubuntu:~/c/$ 
+```
 
 ---
 
-### 1. Write the tests for each component <a name='subparagraph1'></a>
+### 1. Compiler <a name='subparagraph1'></a>
 
-Let’s start improving the tests:
+Write a script that compiles a C file but does not link.
 
-Import your new Header component within the test, and write two checks:
+- The C file name will be saved in the variable `$CFILE`
+- The output file should be named the same as the C file, but with the extension `.o` instead of `.c`.
+    - Example: if the C file is `main.c`, the output file should be `main.o`
 
-* Check whether the <code>Header</code> component contains the Holberton logo.
-* Check whether the <code>Header</code> component contains the heading <code>h1</code> element with the correct text
+```
+julien@ubuntu:~/c/$ export CFILE=main.c
+julien@ubuntu:~/c/$ cat main.c
+#include <stdio.h>
 
-
-
-Import your new <code>Login</code> component within the test, and check:
-
-* Add a test to verify whether the <code>Login</code> includes 2 <code>label</code>, 2 <code>inputs</code>, and 1 <code>button</code> elements
-* Add a test to verify whether the <code>inputs</code> elements get focused (you can choose one of them in build your test) whenever the related <code>label</code> is clicked
-
-
-
-Import your new <code>Footer</code> component within the test, and check:
-
-* Check whether the <code>p</code> element renders the string <code>Copyright {the current year} - Holberton School</code>, whenever the <code>getFooterCopy()</code> “isIndex” argument is set to <code>true</code>
-
-<strong>Note:</strong>
-
-* The <code>Notifications.spec.js</code> unit tests will be evaluated, so make sure they work as expected
-
----
-
-### 2. Separation of Concerns <a name='subparagraph2'></a>
-
-Inside the <code>App</code> component add a new empty array called <code>notificationsList</code> and fill it in with the notification items from the <code>Notifications</code> component, make sure each item has the following 3 keys <code>id</code>, <code>type</code>, and <code>value</code>:
-
-* <code>id</code>: a random unique number
-* <code>type</code>: whether it is default or urgent
-* <code>value</code>: notification text (the 3rd item should be <code>HTML</code>)
-
-The new array should be passed as a prop to the <code>Notifications</code> component, which is a child of the <code>App</code> component.
-
-Inside the <code>Notifications</code> component, Since the <code>li</code> element is repeated more than once, create a new component that will be responsible for rendering these elements.
-
-Within a new file <code>NotificationItem.jsx</code> create a new component named <code>NotificationItem</code>:
-
-* This component should render a <code>li</code> tag
-* The component should accept three properties (<code>type</code>, <code>html</code>, and <code>value</code>)
-* The <code>data-notification-type</code> attribute should take the <code>type</code> prop as its value
-* The <code>dangerouslySetInnerHTML</code> attribute should take the <code>html</code> prop as its value
-* The <code>li</code> tag should render the text from the prop’s <code>value</code> .
-* Your JSX code should conditionally render the notification items based on the value of the <code>type</code> prop
-
-
-
-Every component should be tested. Create a new file named <code>NotificationItem.spec.js</code> , and add the following tests:
-
-* Check whether the <code>li</code> element has the color <code>blue</code>, and the the attribute <code>data-notification-type</code> set to <code>default</code> whenever the component receives the prop’s type as “default”.
-* Check whether the <code>li</code> element has the color <code>red</code>, and the the attribute <code>data-notification-type</code> set to <code>urgent</code> whenever the component receives the props’s type as “urgent”.
-
-
-
-* The <code>Notifications</code> component should accept the prop <code>notifications</code> which will be set to the value of <code>notificationsList</code> (By default it should be an empty array)
-* Import the new <code>NotificationItem</code> component and replace the <code>&lt;li&gt;</code> tags with <code>NotificationItem</code> components. (this is a common case where the <code>map</code> array method comes in handy)
-
-
-
-* Ensure that the Notifications component still displays the 3 notification items, with the appropriate text
-
-<strong>Requirements:</strong>
-
-* At this point, reloading the <code>Holberton dashboard</code> React application should still render the same design.
-* The console in your browser should not show any errors or warnings
-* There should be no lint errors
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	return (0);
+}
+julien@ubuntu:~/c/$ ./1-compiler 
+julien@ubuntu:~/c/$ ls
+0-preprocessor  1-compiler   c            main.o
+Makefile               100-intel      main.c  main.s
+julien@ubuntu:~/c/$ cat -v main.o | head
+^?ELF^B^A^A^@^@^@^@^@^@^@^@^@^A^@>^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^B^@^@^@^@^@^@^@^@^@^@@^@^@^@^@^@@^@^K^@^H^@UHM-^IM-eM-8^@^@^@^@]M-C^@GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609^@^T^@^@^@^@^@^@^@^AzR^@^Ax^P^A^[^L^G^HM-^P^A^@^@^\^@^@^@^\^@^@^@^@^@^@^@^K^@^@^@^@A^N^PM-^F^BC^M^FF^L^G^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^D^@M-qM-^?^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^E^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^R^@^A^@^@^@^@^@^@^@^@^@^K^@^@^@^@^@^@^@^@main.c^@main^@^@^@^@ ^@^@^@^@^@^@^@^B^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@.symtab^@.strtab^@.shstrtab^@.text^@.data^@.bss^@.comment^@.note.GNU-stack^@.rela.eh_frame^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[^@^@^@^A^@^@^@^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@^@^@^@^@^@^@^@^K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@!^@^@^@^A^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@'^@^@^@^H^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@,^@^@^@^A^@^@^@0^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@5^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@5^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@J^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^@^@^@^@^@^@^@^@8^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@E^@^@^@^D^@^@^@@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M- ^A^@^@^@^@^@^@^X^@^@^@^@^@^@^@	^@^@^@^F^@^@^@^H^@^@^@^@^@^@^@^X^@^@^@^@^@^@^@^Q^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-8^A^@^@^@^@^@^@T^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-8^@^@^@^@^@^@^@M-X^@^@^@^@^@^@^@
+^@^@^@^H^@^@^@^H^@^@^@^@^@^@^@^X^@^@^@^@^@^@^@	^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^P^A^@^@^@^@^@^@^M^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@julien@ubuntu:~/c/$ 
+```
 
 ---
 
-### 3. Devtool React extension <a name='subparagraph3'></a>
+### 2. Assembler <a name='subparagraph2'></a>
 
-Using the React extension in Chrome:
+Write a script that generates the assembly code of a C code and save it in an output file.
 
-* Modify the type of the first NotificationItem to change from “default” to “urgent”. The first notification should change color to red and vice versa, take a screenshot
-* Profile the load of the application and note which component is the longest to render after <code>App</code> component, take a screenshot
+- The C file name will be saved in the variable `$CFILE`
+- The output file should be named the same as the C file, but with the extension `.s` instead of `.c`.
+    - Example: if the C file is `main.c`, the output file should be `main.s`
 
-<strong>Requirements:</strong>
+```
+julien@ubuntu:~/c/$ export CFILE=main.c
+julien@ubuntu:~/c/$ cat main.c
+#include <stdio.h>
 
-* You have to push all your code boilerplate with the screenshots from your browser react devtools result
-
----
-
-### 4. CourseList & CourseListRow <a name='subparagraph4'></a>
-
-Create a new folder <code>CourseList</code> and a new component with the name <code>CourseListRow</code>. The component accepts 3 props:
-
-* <code>isHeader</code> (default value: <code>false</code>)
-* <code>textFirstCell</code> (default value: empty string)
-* <code>textSecondCell</code> (default value: null)
-
-The component returns a <code>tr</code> element, and within that element:
-
-* If <code>isHeader</code> is <code>true</code>:
-
-
-  * If <code>textSecondCell</code> is <code>null</code>, it returns a <code>th</code> element containing <code>textFirstCell</code> with a <code>colSpan = 2</code>
-  * If <code>textSecondCell</code> is not null, it returns two <code>th</code> elements containing <code>textFirstCell</code> and <code>textSecondCell</code>
-* If <code>isHeader</code> is <code>false</code>
-
-  * It returns two <code>td</code> elements containing <code>textFirstCell</code> and <code>textSecondCell</code>
-
-Create a <code>CourseListRow.spec.js</code> file, and add the following tests:
-
-* When <code>isHeader</code> is <code>true</code>:
-
-
-  * When <code>textSecondCell</code> is null, check whether the component renders one <code>columnheader</code> that has the attribute<code>colspan = 2</code>
-  * When <code>textSecondCell</code> is not null,  check whether the component renders 2 <code>&lt;th&gt;</code> cells .
-* When <code>isHeader</code> is <code>false</code>:
-
-
-  * Add a check to test the component renders correctly two <code>td</code> elements within a <code>tr</code> element
-
-
-
-In the folder <code>CourseList</code>, create a new component named <code>CourseList</code> where it’s:
-
-* A child of the <code>App</code> component
-* <p>Receive <code>courses</code> prop (by default it’s an empty array)</p>
-* <p>It returns a <code>table</code> element with an id <code>CourseList</code></p>
-* <p>It contains a <code>thead</code> element</p>
-* <p>It includes a <code>CourseListRow</code> with the props <code>textFirstCell="Available courses"</code> and <code>isHeader=true</code></p>
-* <p>It includes a <code>CourseListRow</code> with the props <code>textFirstCell="Course name"</code>, <code>textSecondCell="Credit"</code>, and <code>isHeader=true</code></p>
-* <p>It contains a <code>tbody</code> element:</p>
-
-  * It includes a <code>CourseListRow</code> component that will take course data with every iteration
-  * When the <code>courses</code> prop is empty the <code>CourseListRow</code> component should render a row with text <code>No course available yet</code>
-
-
-
-* Check that it renders 5 different rows when it receive an array of courses objects
-* Check that it renders 1 row whenever it receive an empty array
-
-
-
-* Create and import a file <code>CourseList.css</code> where you will be able to add the below styling for the component
-
-
-
-* <p>Add an array of courses objects <code>coursesList</code>, where each object has the following key-value pairs</p>
-
-  * <code>id</code>: unique number
-  * <code>name</code>: ES6, Webpack, React
-  * <code>credit</code>: 60, 20, 40
-* <p>Modify the <code>App</code> component to display either the <code>Login</code>, or the <code>CourseList</code> component:</p>
-* <p>Create a property <code>isLoggedIn</code>. It should be <code>false</code> by default</p>
-* <p>When <code>isLoggedIn</code> is <code>false</code>, display the <code>Login</code> component</p>
-* <p>Otherwise display the <code>CourseList</code> component</p>
-
-
-
-* <p>When the <code>isLoggedIn</code> is set to <code>false</code>:</p>
-
-  * Check that the <code>App</code> component should render the <code>Login</code> component
-* <p>When the <code>isLoggedIn</code> is set to <code>true</code>:</p>
-
-  * Check that the <code>App</code> component should render a <code>CourseList</code> component
-
-
-
-<code>App</code>:
-
-* Modify the CSS to make the UI looks like the image below when <code>isLoggedIn</code> is <code>false</code>
-
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/1c9259a842b824ce6f749b6db12ae1807742bae0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=d87a68c970b1f9aff36557f35f022b46874699c6e4ae23eba5b0e9f090c62129" style=""/>
-
-* Modify the CSS to make the UI looks like the image below when <code>isLoggedIn</code> is <code>true</code>
-
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/898b52472179db2a357a1da83dcac7f7e58522e8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=645bff445bd3c3a2ef3ed5aca0279b650470e2ddbfce1169d86525d922234501" style=""/>
-
-* Modify the CSS to make the UI looks like the image below when <code>isLoggedIn</code> is <code>true</code> and the courses prop is an empty array
-
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/ab09dbfdee0eacfef0782cdd0ed57cb6f56d8958.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f9db635827597bfdb74e8e1fb1fdcfc12f1714ca8573ab72dd9e2e15f65f052d" style=""/>
-
-Requirements:
-
-* The console in your browser should not show any error or warning
-* All unit tests PASS
-* No lint errors
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	return (0);
+}
+julien@ubuntu:~/c/$ ./2-assembler
+julien@ubuntu:~/c/$ ls
+0-preprocessor  1-compiler  2-assembler c  main.c  main.s  Makefile
+julien@ubuntu:~/c/$ cat main.s
+	.file	"main.c"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
+	.section	.note.GNU-stack,"",@progbits
+julien@ubuntu:~/c/$ 
+```
 
 ---
 
-### 5. Enhance Notifications component <a name='subparagraph5'></a>
+### 3. Name <a name='subparagraph3'></a>
 
-Add a new <code>div</code> element with the class <code>notifications-title</code>:
+Write a script that compiles a C file and creates an executable named `cisfun`.
 
-* It contains a text <code>Your notifications</code>
-* It should be displayed right before <code>div.Notifications</code> container element
+- The C file name will be saved in the variable `$CFILE`
 
-Add a prop to the <code>Notifications</code> component named <code>displayDrawer</code>:
+```
+julien@ubuntu:~/c/$ export CFILE=main.c
+julien@ubuntu:~/c/$ cat main.c
+#include <stdio.h>
 
-* <p>By default it should be <code>false</code></p>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	return (0);
+}
+julien@ubuntu:~/c/$ ./3-name 
+julien@ubuntu:~/c/$ ls
+0-preprocessor  1-compiler   3-name  cisfun  main.o  Makefile
+100-intel       2-assembler  c       main.c  main.s
+julien@ubuntu:~/c/$ 
+```
 
-  * In this case the notification items, the text “Here is the list of notifications”, and the button should not be displayed
-* <p>Otherwise:</p>
+---
 
-  * the notification items, the text “Here is the list of notifications”, and the button should be displayed
-* <p>When the <code>notifications</code> prop receives an empty array the <code>Notifications</code> component should display the text <code>No new notification for now</code></p>
-* <p>In All cases, the text “Your Notifications” should always be displayed.</p>
+### 4. Hello, puts <a name='subparagraph4'></a>
 
+Write a C program that prints exactly `"Programming is like building a multilingual puzzle`, followed by a new line.
 
+- Use the function `puts`
+- You are not allowed to use `printf`
+- Your program should end with the value `0`
 
-* <p>Add new tests to check the behavior of the UI whenever the prop <code>displayDrawer</code> set to <code>false</code>:</p>
+```
+julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 4-puts.c && ./a.out
+"Programming is like building a multilingual puzzle
+julien@ubuntu:~/c/$ echo $?
+0
+julien@ubuntu:~/c/$ 
+```
 
-  * Check that the <code>Notifications</code> component doesn’t displays the close button, the <code>p</code> element (Here’s the list…), or the notification items
-* <p>Add new tests to check the behavior of the UI whenever the the prop <code>displayDrawer</code> set to <code>true</code>:</p>
+---
 
-  * Check that the <code>Notifications</code> component displays the close button, the <code>p</code> element (Here’s the list…), and the notification items
-* <p>Add new tests to check the behavior of the UI whenever the prop <code>displayDrawer</code> set to <code>true</code> and <code>notifications</code> prop is empty:</p>
+### 5. Hello, printf <a name='subparagraph5'></a>
 
-  * Check that the <code>Notifications</code> component displays the text <code>No new notification for now</code>
-* <p>In all cases, the “Your Notifications” text check should PASS.</p>
-* <p>All tests should PASS</p>
+Write a C program that prints exactly `with proper grammar, but the outcome is a piece of art,`, followed by a new line.
 
+- Use the function `printf`
+- You are not allowed to use the function `puts`
+- Your program should return `0`
+- Your program should compile without warning when using the `-Wall` `gcc` option
 
+```
+julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 5-printf.c
+julien@ubuntu:~/c/$ ./a.out 
+with proper grammar, but the outcome is a piece of art,
+julien@ubuntu:~/c/$ echo $?
+0
+julien@ubuntu:~/c/$ 
+```
 
-<code>Notifications</code> rendering cases:
+---
 
-* Modify the CSS to make the UI looks like the image below when <code>displayDrawer</code> is <code>true</code>
+### 6. Size is not grandeur, and territory does not make a nation <a name='subparagraph6'></a>
 
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/180c2987bffff1e96178dcdfd939ff1ea70938e5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=320f25bb05cfc3662975f9c7e487278214b8e5be5ac100afb336de645463b32c" style=""/>
+Write a C program that prints the size of various types on the computer it is compiled and run on.
 
-* Modify the CSS to make the UI looks like the image below when <code>displayDrawer</code> is <code>true</code> & <code>notifications</code> prop empty:
+- You should produce the exact same output as in the example
+- Warnings are allowed
+- Your program should return `0`
+- If you are using a linux on Vagrant you might have to install the package  `libc6-dev-i386` to test the `-m32` `gcc` option (normally you dont need to do anything on your sandbox).
 
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/c4399c726941b491d3cfede0ad6ace9d5275a539.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=39fae95d42b0e9d824e1b72e7b9698d9a93daba1a5b5904395f1a5d985883a26" style=""/>
+```
+julien@ubuntu:~/c/$ gcc 6-size.c -m32 -o size32 2> /tmp/32
+julien@ubuntu:~/c/$ gcc 6-size.c -m64 -o size64 2> /tmp/64
+julien@ubuntu:~/c/$ ./size32
+Size of a char: 1 byte(s)
+Size of an int: 4 byte(s)
+Size of a long int: 4 byte(s)
+Size of a long long int: 8 byte(s)
+Size of a float: 4 byte(s)
+julien@ubuntu:~/c/$ ./size64
+Size of a char: 1 byte(s)
+Size of an int: 4 byte(s)
+Size of a long int: 8 byte(s)
+Size of a long long int: 8 byte(s)
+Size of a float: 4 byte(s)
+julien@ubuntu:~/c/$ echo $?
+0
+julien@ubuntu:~/c/$ 
+```
 
-* Modify the CSS to make the UI looks like the image below when <code>displayDrawer</code> is <code>false</code>
+---
 
-<img alt="" loading="lazy" src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2024/9/4c208e54072410a89c7a5da30bb4da50cc131b40.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250729%2Feu-west-3%2Fs3%2Faws4_request&amp;X-Amz-Date=20250729T092352Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=dcb379609ce682dfb2de21596bee7bfcd6f08f94ba048f4135102b8427a11353" style=""/>
+### 7. What happens when you type gcc main.c <a name='subparagraph7'></a>
+
+Write a blog post that explains all the steps of compilation. Use command lines and examples to illustrate.
+
+- Use `gcc` as the compiler
+- Have at least one picture, at the top of the blog post
+- Publish your blog post on Medium or LinkedIn
+- Share your blog post at least on LinkedIn
+- Please, remember that these blogs must be written in English to further your technical ability in a variety of settings
+
+When done, please add all urls below (blog post, LinkedIn post, etc.)
+
+---
+
+### 8. Intel <a name='subparagraph8'></a>
+
+Write a script that generates the assembly code (Intel syntax) of a C code and save it in an output file.
+
+- The C file name will be saved in the variable `$CFILE`.
+- The output file should be named the same as the C file, but with the extension `.s` instead of `.c`.
+    - Example: if the C file is `main.c`, the output file should be `main.s`
+
+```
+julien@ubuntu:~/c/$ export CFILE=main.c
+julien@ubuntu:~/c/$ cat main.c
+#include <stdio.h>
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	return (0);
+}
+julien@ubuntu:~/c/$ ./100-intel 
+julien@ubuntu:~/c/$ cat main.s
+	.file	"main.c"
+	.intel_syntax noprefix
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	push	rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp
+	.cfi_def_cfa_register 6
+	mov	eax, 0
+	pop	rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
+	.section	.note.GNU-stack,"",@progbits
+julien@ubuntu:~/c/$ 
+```
+
+---
+
+### 9. UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity <a name='subparagraph9'></a>
+
+Write a C program that prints exactly `and that piece of art is useful" - Dora Korpar, 2015-10-19`, followed by a new line, to the standard error.
+
+- You are not allowed to use any functions listed in the NAME section of the man (3) `printf` or man (3) `puts`
+- Your program should return 1
+- Your program should compile without any warnings when using the `-Wall` `gcc` option
+
+```
+julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -o quote 101-quote.c
+julien@ubuntu:~/c/$ ./quote
+and that piece of art is useful" - Dora Korpar, 2015-10-19
+julien@ubuntu:~/c/$ echo $?
+1
+julien@ubuntu:~/c/$ ./quote 2> q
+julien@ubuntu:~/c/$ cat q
+and that piece of art is useful" - Dora Korpar, 2015-10-19
+julien@ubuntu:~/c/$ grep printf < 101-quote.c
+julien@ubuntu:~/c/$ grep put < 101-quote.c
+julien@ubuntu:~/c/$ 
+```
 
 ---
 
