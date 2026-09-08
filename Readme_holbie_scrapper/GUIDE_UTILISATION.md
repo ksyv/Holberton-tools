@@ -39,7 +39,17 @@ pip install -r requirements.txt
 
 La dépendance principale est `beautifulsoup4`.
 
-## 4. Générer le README
+## 4. Copier le html
+
+Sur la page du projet, ouvre les dev tool (F12)
+
+Va sur l'onglet "sources", dans le soddier projects, et ouvre le fichier à 4 chiffre (ici 2217)
+<div align="center"><img src="./image.png"></div>
+
+Copie tout le html et colle le dans le fichier `projet.html` (remplace tout le contenu)
+
+
+## 5. Générer le README
 
 Lance le script :
 
@@ -55,7 +65,7 @@ README.md généré avec succès!
 
 Le fichier `README.md` est alors créé ou mis à jour dans le dossier `Readme_holbie_scrapper`.
 
-## 5. Vérifier le résultat
+## 6. Vérifier le résultat
 
 Ouvre le fichier généré pour vérifier son contenu :
 
@@ -73,7 +83,7 @@ Si tu obtiens l'erreur `ModuleNotFoundError: No module named 'bs4'`, cela veut d
 pip install -r requirements.txt
 ```
 
-## 6. Si tu veux générer un README à partir d'un autre HTML
+## 7. Si tu veux générer un README à partir d'un autre HTML
 
 Le script appelle actuellement :
 
@@ -87,7 +97,7 @@ Si tu veux utiliser un autre fichier HTML, remplace ce nom par le fichier voulu,
 python3 extract.py
 ```
 
-## 7. Désactiver l'environnement virtuel
+## 8. Désactiver l'environnement virtuel
 
 Une fois terminé :
 

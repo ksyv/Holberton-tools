@@ -1,433 +1,423 @@
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
-# C - Hello, World
+# C - Function pointers
 
 ## Table of Contents :
 
-  - [0. Preprocessor](#subparagraph0)
-  - [1. Compiler](#subparagraph1)
-  - [2. Assembler](#subparagraph2)
-  - [3. Name](#subparagraph3)
-  - [4. Hello, puts](#subparagraph4)
-  - [5. Hello, printf](#subparagraph5)
-  - [6. Size is not grandeur, and territory does not make a nation](#subparagraph6)
-  - [7. What happens when you type gcc main.c](#subparagraph7)
-  - [8. Intel](#subparagraph8)
-  - [9. UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity](#subparagraph9)
+  - [0. What's my name](#subparagraph0)
+  - [1. If you spend too much time thinking about a thing, you'll never get it done](#subparagraph1)
+  - [2. To hell with circumstances; I create opportunities](#subparagraph2)
+  - [3. A goal is not always meant to be reached, it often serves simply as something to aim at](#subparagraph3)
+  - [4. Most hackers are young because young people tend to be adaptable. As long as you remain adaptable, you can always be a good hacker](#subparagraph4)
 ## Resources
 
 **Read or watch**:
 
-- [Everything you need to know to start with C.pdf](/rltoken/84REXk5PZpCHvpqRhygpAw) (*You do not have to learn everything in there yet, but make sure you read it entirely first*)
-- [Dennis Ritchie](/rltoken/z_bMXWzGREPdNusi75hIaA) 
-- ["C" Programming Language: Brian Kernighan](/rltoken/ALlxQP48pUddRMMOU9IYrw) 
-- [Why C Programming Is Awesome](/rltoken/jeQhdiiq4EemF-jlzBCHKw) 
-- [Learning to program in C part 1](/rltoken/y-sbT9uSCGF6ml1ZPOvyJg) 
-- [Learning to program in C part 2](/rltoken/r3mDdJIpJHmu4TdJBV95gQ) 
-- [Understanding C program Compilation Process](/rltoken/tjRducuDVR9ftHsOFxdYmw) 
-- [Betty Coding Style](/rltoken/GG06ebtkejkhoyCOjx1S6w) 
-- [Linus Torvalds on C vs. C++](/rltoken/fXapDTlCYs_KsVAJhxfz6A) (*Look at only after you finish consuming the other resources*)
-
-**man or help**:
-
-- `gcc`
-- `printf (3)`
-- `puts`
-- `putchar`
+- [Function Pointer in C](/rltoken/sXLp2KFv2xf0qBO8xX5B1A) 
+- [Pointers to functions](/rltoken/zH2EY_rooZFB4zyN7gRFEQ) 
+- [Function Pointers in C / C++](/rltoken/ZMt6k0RrDVvF3WeLK2Wllw) 
+- [why pointers to functions?](/rltoken/61rj01NJ8P7cBMd8m6Sm7w) 
+- [Everything you need to know about pointers in C](/rltoken/Z0tUxkCEq-2HssDEnN0bsg) 
 
 ## Learning Objectives
 
-At the end of this project, you are expected to be able to [explain to anyone](/rltoken/GEjg-T3E5s_G9FeK4Idz5A), __without the help of Google__:
+At the end of this project, you are expected to be able to [explain to anyone](/rltoken/4kBKT387HAObIjyuUe4nVg), __without the help of Google__:
 
 ### General
 
-- Why C programming is awesome 
-- Who invented C
-- Who are Dennis Ritchie, Brian Kernighan and Linus Torvalds
-- What happens when you type `gcc main.c`
-- What is an entry point
-- What is `main`
-- How to print text using `printf`, `puts` and `putchar`
-- How to get the size of a specific type using the unary operator `sizeof`
-- How to compile using `gcc`
-- What is the default program name when compiling with `gcc`
-- What is the official C coding style and how to check your code with `betty-style`
-- How to find the right header to include in your source code when using a standard library function
-- How does the `main` function influence the return value of the program
+- What are function pointers and how to use them
+- What does a function pointer exactly hold
+- Where does a function pointer point to in the virtual memory
 
 ## Requirements
 
-### C
+### General
 
 - Allowed editors: `vi`, `vim`, `emacs`
 - All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89`
 - All your files should end with a new line
-- A `README.md` file at the root of the repo, containing a description of the repository
-- A `README.md` file, at the root of the folder of *this* project, containing a description of the project
-- There should be no errors and no warnings during compilation
-- You are not allowed to use `system`
+- A `README.md` file, at the root of the folder of the project is mandatory
 - Your code should use the `Betty` style. It will be checked using [betty-style.pl](https://github.com/hs-hq/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/hs-hq/Betty/blob/master/betty-doc.pl)
-
-### Shell Scripts
-
-- Allowed editors: `vi`, `vim`, `emacs`
-- All your scripts will be tested on Ubuntu 20.04 LTS
-- All your scripts should be exactly two lines long (`$ wc -l file` should print 2)
-- All your files should end with a new line
-- The first line of all your files should be exactly `#!/bin/bash`
-
-## More Info
-
-### Betty linter
-
-To run the Betty linter just with command `betty <filename>`:
-
-- Go to the [Betty](/rltoken/rZaN7lEaiI2xs60Xknp2CA) repository
-- Clone the [repo](/rltoken/rZaN7lEaiI2xs60Xknp2CA) to your local machine
-- `cd` into the Betty directory
-- Install the linter with `sudo ./install.sh`
-- `emacs` or `vi` a new file called `betty`, and copy the script below:
-
-```
-#!/bin/bash
-# Simply a wrapper script to keep you from having to use betty-style
-# and betty-doc separately on every item.
-# Originally by Tim Britton (@wintermanc3r), multiargument added by
-# Larry Madeo (@hillmonkey)
-
-BIN_PATH="/usr/local/bin"
-BETTY_STYLE="betty-style"
-BETTY_DOC="betty-doc"
-
-if [ "$#" = "0" ]; then
-	echo "No arguments passed."
-	exit 1
-fi
-
-for argument in "$@" ; do
-	echo -e "\n========== $argument =========="
-	${BIN_PATH}/${BETTY_STYLE} "$argument"
-	${BIN_PATH}/${BETTY_DOC} "$argument"
-done
-```
-
-- Once saved, exit file and change permissions to apply to all users with `chmod a+x betty`
-- Move the `betty` file into `/bin/` directory or somewhere else in your `$PATH` with `sudo mv betty /bin/`
-
-You can now type `betty <filename>` to run the Betty linter!
-
-### Manual QA Review
-**It is your responsibility to request a review for your blog from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.**
+- You are not allowed to use global variables
+- No more than 5 functions per file
+- The only C standard library functions allowed are `malloc`, `free` and `exit`. Any use of functions like `printf`, `puts`, `calloc`, `realloc` etc... is forbidden
+- You are allowed to use [_putchar](https://github.com/hs-hq/_putchar.c/blob/master/_putchar.c)
+- You don't have to push `_putchar.c`, we will use our file. If you do it won't be taken into account
+- In the following examples, the `main.c` files are shown as examples. You can use them to test your functions, but you don't have to push them to your repo (if you do we won't take them into account). We will use our own `main.c` files at compilation. Our `main.c` files might be different from the one shown in the examples
+- The prototypes of all your functions and the prototype of the function `_putchar` should be included in your header file called `function_pointers.h`
+- Don't forget to push your header file
+- All your header files should be include guarded
 
 
 ## Task
-### 0. Preprocessor <a name='subparagraph0'></a>
+### 0. What's my name <a name='subparagraph0'></a>
 
-Write a script that runs a C file through the preprocessor and save the result into another file.
+Write a function that prints a name.
 
-- The C file name will be saved in the variable `$CFILE`
-- The output should be saved in the file `c`
+- Prototype: `void print_name(char *name, void (*f)(char *));`
 
 ```
-julien@ubuntu:~/c/$ cat main.c 
+julien@ubuntu:~/0x0e. Function pointers$ cat 0-main.c
 #include <stdio.h>
+#include "function_pointers.h"
 
 /**
- * main - Entry point
+ * print_name_as_is - prints a name as is
+ * @name: name of the person
  *
- * Return: Always 0 (Success)
+ * Return: Nothing.
+ */
+void print_name_as_is(char *name)
+{
+	printf("Hello, my name is %s\n", name);
+}
+
+/**
+ * print_name_uppercase - print a name in uppercase
+ * @name: name of the person
+ *
+ * Return: Nothing.
+ */
+void print_name_uppercase(char *name)
+{
+	unsigned int i;
+
+	printf("Hello, my uppercase name is ");
+	i = 0;
+	while (name[i])
+	{
+		if (name[i] >= 'a' && name[i] <= 'z')
+		{
+			putchar(name[i] + 'A' - 'a');
+		}
+		else
+		{
+			putchar(name[i]);
+		}
+		i++;
+	}
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
+	print_name("Bob", print_name_as_is);
+	print_name("Bob Dylan", print_name_uppercase);
+	printf("\n");
 	return (0);
 }
-julien@ubuntu:~/c/$ export CFILE=main.c
-julien@ubuntu:~/c/$ ./0-preprocessor 
-julien@ubuntu:~/c/$ tail c
-# 942 "/usr/include/stdio.h" 3 4
-
-# 2 "main.c" 2
-
-
-# 3 "main.c"
-int main(void)
-{
- return (0);
-}
-julien@ubuntu:~/c/$ 
+julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-print_name.c -o a
+julien@ubuntu:~/0x0e. Function pointers$ ./a 
+Hello, my name is Bob
+Hello, my uppercase name is BOB DYLAN
+julien@ubuntu:~/0x0e. Function pointers$ 
 ```
 
 ---
 
-### 1. Compiler <a name='subparagraph1'></a>
+### 1. If you spend too much time thinking about a thing, you'll never get it done <a name='subparagraph1'></a>
 
-Write a script that compiles a C file but does not link.
+Write a function that executes a function given as a parameter on each element of an array.
 
-- The C file name will be saved in the variable `$CFILE`
-- The output file should be named the same as the C file, but with the extension `.o` instead of `.c`.
-    - Example: if the C file is `main.c`, the output file should be `main.o`
+- Prototype: `void array_iterator(int *array, size_t size, void (*action)(int));`
+- where `size` is the size of the array
+- and `action` is a pointer to the function you need to use
 
 ```
-julien@ubuntu:~/c/$ export CFILE=main.c
-julien@ubuntu:~/c/$ cat main.c
+julien@ubuntu:~/0x0e. Function pointers$ cat 1-main.c
 #include <stdio.h>
+#include "function_pointers.h"
 
 /**
- * main - Entry point
+ * print_elem - prints an integer
+ * @elem: the integer to print
  *
- * Return: Always 0 (Success)
+ * Return: Nothing.
+ */
+void print_elem(int elem)
+{
+	printf("%d\n", elem);
+}
+
+/**
+ * print_elem_hex - prints an integer, in hexadecimal
+ * @elem: the integer to print
+ *
+ * Return: Nothing.
+ */
+void print_elem_hex(int elem)
+{
+	printf("0x%x\n", elem);
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
+	int array[5] = {0, 98, 402, 1024, 4096};
+
+	array_iterator(array, 5, &print_elem);
+	array_iterator(array, 5, &print_elem_hex);
 	return (0);
 }
-julien@ubuntu:~/c/$ ./1-compiler 
-julien@ubuntu:~/c/$ ls
-0-preprocessor  1-compiler   c            main.o
-Makefile               100-intel      main.c  main.s
-julien@ubuntu:~/c/$ cat -v main.o | head
-^?ELF^B^A^A^@^@^@^@^@^@^@^@^@^A^@>^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^B^@^@^@^@^@^@^@^@^@^@@^@^@^@^@^@@^@^K^@^H^@UHM-^IM-eM-8^@^@^@^@]M-C^@GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609^@^T^@^@^@^@^@^@^@^AzR^@^Ax^P^A^[^L^G^HM-^P^A^@^@^\^@^@^@^\^@^@^@^@^@^@^@^K^@^@^@^@A^N^PM-^F^BC^M^FF^L^G^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^D^@M-qM-^?^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^E^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^C^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^R^@^A^@^@^@^@^@^@^@^@^@^K^@^@^@^@^@^@^@^@main.c^@main^@^@^@^@ ^@^@^@^@^@^@^@^B^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@.symtab^@.strtab^@.shstrtab^@.text^@.data^@.bss^@.comment^@.note.GNU-stack^@.rela.eh_frame^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[^@^@^@^A^@^@^@^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@^@^@^@^@^@^@^@^K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@!^@^@^@^A^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@'^@^@^@^H^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@,^@^@^@^A^@^@^@0^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@K^@^@^@^@^@^@^@5^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@5^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@J^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^@^@^@^@^@^@^@^@8^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@E^@^@^@^D^@^@^@@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M- ^A^@^@^@^@^@^@^X^@^@^@^@^@^@^@	^@^@^@^F^@^@^@^H^@^@^@^@^@^@^@^X^@^@^@^@^@^@^@^Q^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-8^A^@^@^@^@^@^@T^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-8^@^@^@^@^@^@^@M-X^@^@^@^@^@^@^@
-^@^@^@^H^@^@^@^H^@^@^@^@^@^@^@^X^@^@^@^@^@^@^@	^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@M-^P^A^@^@^@^@^@^@^M^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@julien@ubuntu:~/c/$ 
-```
-
----
-
-### 2. Assembler <a name='subparagraph2'></a>
-
-Write a script that generates the assembly code of a C code and save it in an output file.
-
-- The C file name will be saved in the variable `$CFILE`
-- The output file should be named the same as the C file, but with the extension `.s` instead of `.c`.
-    - Example: if the C file is `main.c`, the output file should be `main.s`
-
-```
-julien@ubuntu:~/c/$ export CFILE=main.c
-julien@ubuntu:~/c/$ cat main.c
-#include <stdio.h>
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-	return (0);
-}
-julien@ubuntu:~/c/$ ./2-assembler
-julien@ubuntu:~/c/$ ls
-0-preprocessor  1-compiler  2-assembler c  main.c  main.s  Makefile
-julien@ubuntu:~/c/$ cat main.s
-	.file	"main.c"
-	.text
-	.globl	main
-	.type	main, @function
-main:
-.LFB0:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	movl	$0, %eax
-	popq	%rbp
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE0:
-	.size	main, .-main
-	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
-	.section	.note.GNU-stack,"",@progbits
-julien@ubuntu:~/c/$ 
-```
-
----
-
-### 3. Name <a name='subparagraph3'></a>
-
-Write a script that compiles a C file and creates an executable named `cisfun`.
-
-- The C file name will be saved in the variable `$CFILE`
-
-```
-julien@ubuntu:~/c/$ export CFILE=main.c
-julien@ubuntu:~/c/$ cat main.c
-#include <stdio.h>
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-	return (0);
-}
-julien@ubuntu:~/c/$ ./3-name 
-julien@ubuntu:~/c/$ ls
-0-preprocessor  1-compiler   3-name  cisfun  main.o  Makefile
-100-intel       2-assembler  c       main.c  main.s
-julien@ubuntu:~/c/$ 
-```
-
----
-
-### 4. Hello, puts <a name='subparagraph4'></a>
-
-Write a C program that prints exactly `"Programming is like building a multilingual puzzle`, followed by a new line.
-
-- Use the function `puts`
-- You are not allowed to use `printf`
-- Your program should end with the value `0`
-
-```
-julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 4-puts.c && ./a.out
-"Programming is like building a multilingual puzzle
-julien@ubuntu:~/c/$ echo $?
+julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-array_iterator.c -o b
+julien@ubuntu:~/0x0e. Function pointers$ ./b 
 0
-julien@ubuntu:~/c/$ 
+98
+402
+1024
+4096
+0x0
+0x62
+0x192
+0x400
+0x1000
+julien@ubuntu:~//0x0e. Function pointers$ 
 ```
 
 ---
 
-### 5. Hello, printf <a name='subparagraph5'></a>
+### 2. To hell with circumstances; I create opportunities <a name='subparagraph2'></a>
 
-Write a C program that prints exactly `with proper grammar, but the outcome is a piece of art,`, followed by a new line.
+Write a function that searches for an integer.
 
-- Use the function `printf`
-- You are not allowed to use the function `puts`
-- Your program should return `0`
-- Your program should compile without warning when using the `-Wall` `gcc` option
-
-```
-julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 5-printf.c
-julien@ubuntu:~/c/$ ./a.out 
-with proper grammar, but the outcome is a piece of art,
-julien@ubuntu:~/c/$ echo $?
-0
-julien@ubuntu:~/c/$ 
-```
-
----
-
-### 6. Size is not grandeur, and territory does not make a nation <a name='subparagraph6'></a>
-
-Write a C program that prints the size of various types on the computer it is compiled and run on.
-
-- You should produce the exact same output as in the example
-- Warnings are allowed
-- Your program should return `0`
-- If you are using a linux on Vagrant you might have to install the package  `libc6-dev-i386` to test the `-m32` `gcc` option (normally you dont need to do anything on your sandbox).
+- Prototype: `int int_index(int *array, int size, int (*cmp)(int));`
+- where `size` is the number of elements in the array `array`
+- `cmp` is a pointer to the function to be used to compare values
+- `int_index` returns the index of the first element for which the `cmp` function does not return `0`
+- If no element matches, return `-1`
+- If size <= `0`, return `-1`
 
 ```
-julien@ubuntu:~/c/$ gcc 6-size.c -m32 -o size32 2> /tmp/32
-julien@ubuntu:~/c/$ gcc 6-size.c -m64 -o size64 2> /tmp/64
-julien@ubuntu:~/c/$ ./size32
-Size of a char: 1 byte(s)
-Size of an int: 4 byte(s)
-Size of a long int: 4 byte(s)
-Size of a long long int: 8 byte(s)
-Size of a float: 4 byte(s)
-julien@ubuntu:~/c/$ ./size64
-Size of a char: 1 byte(s)
-Size of an int: 4 byte(s)
-Size of a long int: 8 byte(s)
-Size of a long long int: 8 byte(s)
-Size of a float: 4 byte(s)
-julien@ubuntu:~/c/$ echo $?
-0
-julien@ubuntu:~/c/$ 
-```
-
----
-
-### 7. What happens when you type gcc main.c <a name='subparagraph7'></a>
-
-Write a blog post that explains all the steps of compilation. Use command lines and examples to illustrate.
-
-- Use `gcc` as the compiler
-- Have at least one picture, at the top of the blog post
-- Publish your blog post on Medium or LinkedIn
-- Share your blog post at least on LinkedIn
-- Please, remember that these blogs must be written in English to further your technical ability in a variety of settings
-
-When done, please add all urls below (blog post, LinkedIn post, etc.)
-
----
-
-### 8. Intel <a name='subparagraph8'></a>
-
-Write a script that generates the assembly code (Intel syntax) of a C code and save it in an output file.
-
-- The C file name will be saved in the variable `$CFILE`.
-- The output file should be named the same as the C file, but with the extension `.s` instead of `.c`.
-    - Example: if the C file is `main.c`, the output file should be `main.s`
-
-```
-julien@ubuntu:~/c/$ export CFILE=main.c
-julien@ubuntu:~/c/$ cat main.c
+julien@ubuntu:~/0x0e. Function pointers$ cat 2-main.c
 #include <stdio.h>
+#include "function_pointers.h"
 
 /**
- * main - Entry point
+ * is_98 - check if a number is equal to 98
+ * @elem: the integer to check
  *
- * Return: Always 0 (Success)
+ * Return: 0 if false, something else otherwise.
+ */
+int is_98(int elem)
+{
+	return (98 == elem);
+}
+
+/**
+ * is_strictly_positive - check if a number is greater than 0
+ * @elem: the integer to check
+ *
+ * Return: 0 if false, something else otherwise.
+ */
+int is_strictly_positive(int elem)
+{
+	return (elem > 0);
+}
+
+
+/**
+ * abs_is_98 - check if the absolute value of a number is 98
+ * @elem: the integer to check
+ *
+ * Return: 0 if false, something else otherwise.
+ */
+int abs_is_98(int elem)
+{
+	return (elem == 98 || -elem == 98);
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
+	int array[20] = {0, -98, 98, 402, 1024, 4096, -1024, -98, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 98};
+	int index;
+
+	index = int_index(array, 20, is_98);
+	printf("%d\n", index);
+	index = int_index(array, 20, abs_is_98);
+	printf("%d\n", index);
+	index = int_index(array, 20, is_strictly_positive);
+	printf("%d\n", index);
 	return (0);
 }
-julien@ubuntu:~/c/$ ./100-intel 
-julien@ubuntu:~/c/$ cat main.s
-	.file	"main.c"
-	.intel_syntax noprefix
-	.text
-	.globl	main
-	.type	main, @function
-main:
-.LFB0:
-	.cfi_startproc
-	push	rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	mov	rbp, rsp
-	.cfi_def_cfa_register 6
-	mov	eax, 0
-	pop	rbp
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE0:
-	.size	main, .-main
-	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.2) 5.4.0 20160609"
-	.section	.note.GNU-stack,"",@progbits
-julien@ubuntu:~/c/$ 
-```
-
----
-
-### 9. UNIX is basically a simple operating system, but you have to be a genius to understand the simplicity <a name='subparagraph9'></a>
-
-Write a C program that prints exactly `and that piece of art is useful" - Dora Korpar, 2015-10-19`, followed by a new line, to the standard error.
-
-- You are not allowed to use any functions listed in the NAME section of the man (3) `printf` or man (3) `puts`
-- Your program should return 1
-- Your program should compile without any warnings when using the `-Wall` `gcc` option
-
-```
-julien@ubuntu:~/c/$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -o quote 101-quote.c
-julien@ubuntu:~/c/$ ./quote
-and that piece of art is useful" - Dora Korpar, 2015-10-19
-julien@ubuntu:~/c/$ echo $?
+julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 2-int_index.c -o c
+julien@ubuntu:~/0x0e. Function pointers$ ./c 
+2
 1
-julien@ubuntu:~/c/$ ./quote 2> q
-julien@ubuntu:~/c/$ cat q
-and that piece of art is useful" - Dora Korpar, 2015-10-19
-julien@ubuntu:~/c/$ grep printf < 101-quote.c
-julien@ubuntu:~/c/$ grep put < 101-quote.c
-julien@ubuntu:~/c/$ 
+2
+julien@ubuntu:~/0x0e. Function pointers$ 
 ```
+
+---
+
+### 3. A goal is not always meant to be reached, it often serves simply as something to aim at <a name='subparagraph3'></a>
+
+Write a program that performs simple operations.
+
+- You are allowed to use the standard library
+- Usage: `calc num1 operator num2`
+- You can assume `num1` and `num2` are integers, so use the `atoi` function to convert them from the string input to `int`
+- `operator` is one of the following:
+  - `+`: addition
+  - `-`: subtraction
+  - `*`: multiplication
+  - `/`: division
+  - `%`: modulo
+- The program prints the result of the operation, followed by a new line
+- You can assume that the result of all operations can be stored in an `int`
+- if the number of arguments is wrong, print `Error`, followed by a new line, and exit with the status `98`
+- if the `operator` is none of the above, print `Error`, followed by a new line, and exit with the status `99`
+- if the user tries to divide (`/` or `%`) by `0`, print `Error`, followed by a new line, and exit with the status `100`
+
+This task requires that you create four different files.
+
+**3-calc.h**
+
+This file should contain all the function prototypes and data structures used by the program.
+You can use this structure:
+
+```
+/**
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
+ */
+typedef struct op
+{
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
+```
+
+**3-op\_functions.c**
+
+This file should contain the 5 following functions (not more):
+
+- `op_add`: returns the sum of `a` and `b`. Prototype: `int op_add(int a, int b);`
+- `op_sub`: returns the difference of `a` and `b`. Prototype: `int op_sub(int a, int b);`
+- `op_mul`: returns the product of `a` and `b`. Prototype: `int op_mul(int a, int b);`
+- `op_div`: returns the result of the division of `a` by `b`. Prototype: `int op_div(int a, int b);`
+- `op_mod`: returns the remainder of the division of `a` by `b`. Prototype: `int op_mod(int a, int b);`
+
+**3-get\_op\_func.c**
+
+This file should contain the function that selects the correct function to perform the operation asked by the user. You're not allowed to declare any other function.
+
+- Prototype: `int (*get_op_func(char *s))(int, int);`
+- where `s` is the operator passed as argument to the program
+- This function returns a pointer to the function that corresponds to the operator given as a parameter. Example: `get_op_func("+")` should return a pointer to the function `op_add`
+- You are not allowed to use `switch` statements
+- You are not allowed to use `for` or `do ... while` loops
+- You are not allowed to use `goto`
+- You are not allowed to use `else`
+- You are not allowed to use more than one `if` statement in your code
+- You are not allowed to use more than one `while` loop in your code
+- If `s` does not match any of the 5 expected operators (`+`, `-`, `*`, `/`, `%`), return `NULL`
+- You are only allowed to declare these two variables in this function:
+
+```
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
+```
+
+**3-main.c**
+
+This file should contain your `main` function only.
+
+- You are not allowed to code any other function than `main` in this file
+- You are not allowed to directly call `op_add`, `op_sub`, `op_mul`, `op_div` or `op_mod` from the `main` function
+- You have to use `atoi` to convert arguments to `int`
+- You are not allowed to use any kind of loop
+- You are allowed to use a maximum of 3 `if` statements
+
+**Compilation and examples**
+
+```
+julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-op_functions.c 3-get_op_func.c -o calc
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1 + 1
+2
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 97 + 1
+98
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 / 10
+102
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 '*' 98
+100352
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 '\*' 98
+Error
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 - 98
+926
+julien@ubuntu:~/0x0e. Function pointers$ ./calc 1024 '%' 98
+44
+julien@ubuntu:~/0x0e. Function pointers$ 
+```
+
+---
+
+### 4. Most hackers are young because young people tend to be adaptable. As long as you remain adaptable, you can always be a good hacker <a name='subparagraph4'></a>
+
+Write a program that prints the [opcodes](/rltoken/uXJED-Eq4fo_cqCegjGyaQ) of its own main function.
+
+- Usage: `./main number_of_bytes`
+- Output format:
+  - the opcodes should be printed in hexadecimal, lowercase
+  - each opcode is two char long
+  - listing ends with a new line
+  - see example
+- You are allowed to use `printf` and `atoi`
+- You have to use `atoi` to convert the argument to an `int`
+- If the number of argument is not the correct one, print `Error`, followed by a new line, and exit with the status `1`
+- If the number of bytes is negative, print `Error`, followed by a new line, and exit with the status `2`
+- You do not have to compile with any flags
+
+Note: if you want to translate your opcodes to assembly instructions, you can use, for instance [udcli](/rltoken/poSZ1rGFaDYBs6rLHfSdiw).
+
+```
+julien@ubuntu:~/0x0e. Function pointers$ gcc -std=gnu89 100-main_opcodes.c -o main
+julien@ubuntu:~/0x0e. Function pointers$ ./main 21
+55 48 89 e5 48 83 ec 30 89 7d dc 48 89 75 d0 83 7d dc 02 74 14
+julien@ubuntu:~/0x0e. Function pointers$ objdump -d -j.text -M intel main
+[...]
+00000000004005f6 <main>:
+  4005f6:	55                   	push   rbp
+  4005f7:	48 89 e5             	mov    rbp,rsp
+  4005fa:	48 83 ec 30          	sub    rsp,0x30
+  4005fe:	89 7d dc             	mov    DWORD PTR [rbp-0x24],edi
+  400601:	48 89 75 d0          	mov    QWORD PTR [rbp-0x30],rsi
+  400605:	83 7d dc 02          	cmp    DWORD PTR [rbp-0x24],0x2
+  400609:	74 14                	je     40061f <main+0x29>
+[...]
+julien@ubuntu:~/0x0e. Function pointers$ ./main 21 | udcli -64 -x -o 4005f6
+00000000004005f6 55               push rbp                
+00000000004005f7 4889e5           mov rbp, rsp            
+00000000004005fa 4883ec30         sub rsp, 0x30           
+00000000004005fe 897ddc           mov [rbp-0x24], edi     
+0000000000400601 488975d0         mov [rbp-0x30], rsi     
+0000000000400605 837ddc02         cmp dword [rbp-0x24], 0x2
+0000000000400609 7414             jz 0x40061f             
+julien@ubuntu:~/0x0e. Function pointers$ 
+```
+- _Note 0: `je` is equivalent to `jz`_
+- _Note 1: depending on how you write your `main` function, and on which machine you compile your program, the opcodes (and by extension the assembly code) might be different than the above example_
 
 ---
 
