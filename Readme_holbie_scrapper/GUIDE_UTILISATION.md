@@ -43,7 +43,7 @@ La dépendance principale est `beautifulsoup4`.
 
 Sur la page du projet, ouvre les dev tool (F12)
 
-Va sur l'onglet "sources", dans le soddier projects, et ouvre le fichier à 4 chiffre (ici 2217)
+Va sur l'onglet "sources", dans le dossier projects, et ouvre le fichier à 4 chiffre (ici 2217)
 <div align="center"><img src="./image.png"></div>
 
 Copie tout le html et colle le dans le fichier `projet.html` (remplace tout le contenu)
